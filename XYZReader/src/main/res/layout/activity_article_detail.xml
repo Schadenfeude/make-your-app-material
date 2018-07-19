@@ -16,17 +16,17 @@
                 android:fitsSystemWindows="true">
 
             <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
-                    android:id="@+id/collapsing_toolbar_layout"
                     app:contentScrim="?attr/colorPrimary"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <ImageView
+                        android:id="@+id/toolbar_image"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/appbar_image_height"
-                        android:id="@+id/toolbar_image"
                         android:scaleType="centerCrop"
                         android:fitsSystemWindows="true"
                         android:adjustViewBounds="true"
@@ -52,18 +52,19 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
         <android.support.design.widget.FloatingActionButton
+                android:id="@+id/share_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/share_fab"
-                android:src="@drawable/ic_share"
+                android:layout_margin="@dimen/fab_margin"
                 android:elevation="@dimen/fab_elevation"
                 android:contentDescription="@string/action_share"
-                android:layout_margin="@dimen/fab_margin"
+                android:src="@drawable/ic_share"
                 app:fabSize="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_anchor="@id/toolbar_container"
-                app:layout_anchorGravity="bottom|right|end"/>
+                app:layout_anchorGravity="bottom|right|end"
+                app:pressedTranslationZ="@dimen/fab_press_translation_z"/>
 
     </android.support.design.widget.CoordinatorLayout>
 </layout>

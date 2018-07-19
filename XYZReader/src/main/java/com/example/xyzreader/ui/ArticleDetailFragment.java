@@ -176,6 +176,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     private class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private static final int DATE_VIEW_TYPE = 0;
         private static final int TEXT_VIEW_TYPE = 1;
+
         private List<String> items;
 
         public Adapter(List<String> items) {
@@ -197,19 +198,23 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            LayoutInflater layoutInflater =
-                    LayoutInflater.from(parent.getContext());
-            RecyclerView.ViewHolder viewHolder = null;
+            final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+            RecyclerView.ViewHolder viewHolder;
+
             switch (viewType) {
                 case DATE_VIEW_TYPE: {
-                    ListItemDateBinding binding =
+                    final ListItemDateBinding binding =
                             ListItemDateBinding.inflate(layoutInflater, parent, false);
+
                     viewHolder = new DateViewHolder(binding);
                 }
                 break;
-                case TEXT_VIEW_TYPE: {
-                    ListItemTextBinding binding =
+
+                case TEXT_VIEW_TYPE:
+                default: {
+                    final ListItemTextBinding binding =
                             ListItemTextBinding.inflate(layoutInflater, parent, false);
+
                     viewHolder = new TextViewHolder(binding);
                 }
                 break;
@@ -218,7 +223,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             switch (getItemViewType(position)) {
                 case DATE_VIEW_TYPE:
                     ((DateViewHolder) holder).bind(items.get(position));
@@ -236,9 +241,9 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     }
 
     public static class DateViewHolder extends RecyclerView.ViewHolder {
-        ListItemDateBinding binding;
+        final ListItemDateBinding binding;
 
-        public DateViewHolder(ListItemDateBinding binding) {
+        DateViewHolder(ListItemDateBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
@@ -249,9 +254,9 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     }
 
     public static class TextViewHolder extends RecyclerView.ViewHolder {
-        ListItemTextBinding binding;
+        final ListItemTextBinding binding;
 
-        public TextViewHolder(ListItemTextBinding binding) {
+        TextViewHolder(ListItemTextBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

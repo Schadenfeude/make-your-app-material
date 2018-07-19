@@ -1,5 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <android.support.v7.widget.CardView
             android:layout_width="match_parent"
@@ -25,7 +26,8 @@
                     app:layout_constraintDimensionRatio="H,3:2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/backgrounds/scenic"/>
 
             <TextView
                     android:id="@+id/article_title"
@@ -40,7 +42,8 @@
                     android:maxLines="4"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/thumbnail"/>
+                    app:layout_constraintTop_toBottomOf="@id/thumbnail"
+                    tools:text="@tools:sample/lorem"/>
 
             <TextView
                     android:id="@+id/article_subtitle"
@@ -55,7 +58,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/article_title"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="@tools:sample/lorem/random"/>
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
